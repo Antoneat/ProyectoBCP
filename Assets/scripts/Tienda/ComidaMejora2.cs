@@ -6,6 +6,7 @@ public class ComidaMejora2 : MonoBehaviour
 {
     [SerializeField] MoneyController mc;
     [SerializeField] Feeder feed;
+    [SerializeField] GameObject nextUpgrade;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,8 @@ public class ComidaMejora2 : MonoBehaviour
             feed.normal = false;
             feed.mejora1 = false;
             feed.mejora2 = true;
+            nextUpgrade.SetActive(true);
+            this.gameObject.SetActive(false);
         }
     }
 }

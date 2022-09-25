@@ -5,12 +5,12 @@ using UnityEngine;
 public class PoopValue1 : MonoBehaviour
 {
     private MoneyController mc;
-    private float value;
+    [SerializeField] private float value;
     TouchPhase touchPhase = TouchPhase.Ended;
     Vector3 touchPosWorld;
     void Start()
     {
-        
+        mc = GameObject.Find("MoneyManager").GetComponent<MoneyController>();
     }
 
     // Update is called once per frame

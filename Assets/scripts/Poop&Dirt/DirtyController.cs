@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class DirtyController : MonoBehaviour
 {
-    private float dirtyRun;
+    [SerializeField] private float dirtyRun;
     public PoopController pC;
     // Start is called before the first frame update
     void Start()
     {
-        Dirty();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Dirty();
         
     }
 

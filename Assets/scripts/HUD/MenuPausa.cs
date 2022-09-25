@@ -9,6 +9,7 @@ public class MenuPausa : MonoBehaviour
     public GameObject panelPausa;
 
     public GameObject pauseFirstButton;
+    public GameObject storeButton;
 
     void Update()
     {
@@ -27,6 +28,8 @@ public class MenuPausa : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(null);
             //Set a new selected object
             EventSystem.current.SetSelectedGameObject(pauseFirstButton);
+            storeButton.SetActive(false);
+            pauseFirstButton.SetActive(false);
 
         }
        /* else
@@ -40,6 +43,8 @@ public class MenuPausa : MonoBehaviour
     public void ClosePauseMenu()
     {
         panelPausa.SetActive(false);
+        pauseFirstButton.SetActive(true);
+        storeButton.SetActive(true);
         Time.timeScale = 1f;
   
     }

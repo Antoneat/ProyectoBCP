@@ -77,9 +77,9 @@ public class CuyController : MonoBehaviour
                 if (moveTime < moveLength)
                 {
                     if (rb.velocity.x < 0)
-                    { cuySpriteRenderer.flipX = true; }
-                    else if (rb.velocity.x > 0)
                     { cuySpriteRenderer.flipX = false; }
+                    else if (rb.velocity.x > 0)
+                    { cuySpriteRenderer.flipX = true; }
                     
                    
                     // rb.MovePosition(rb.position * moveDirection * Time.deltaTime * moveSpeed);

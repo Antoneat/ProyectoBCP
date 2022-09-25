@@ -8,6 +8,7 @@ public class HungerController : MonoBehaviour
     public FoodCounter foodCounter;
     void Start()
     {
+        foodCounter = GameObject.Find("FoodManager").GetComponent<FoodCounter>();
         hunger = 0;
     }
 
@@ -30,7 +31,7 @@ public class HungerController : MonoBehaviour
 
           if (hunger >= 1)
             {
-                hunger -= 5;
+                hunger -= 12.5f;
                 Destroy(collision.gameObject);
                 foodCounter.foodValue -= 1;
             }

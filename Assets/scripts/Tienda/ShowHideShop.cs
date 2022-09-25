@@ -6,6 +6,7 @@ public class ShowHideShop : MonoBehaviour
 {
 
     public GameObject panelTienda;
+    public GameObject botonTienda;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,11 +24,13 @@ public class ShowHideShop : MonoBehaviour
         if (!panelTienda.activeInHierarchy)
         {
             panelTienda.SetActive(true);           
+            botonTienda.SetActive(false);           
         }
     }
 
     public void HideShop()
     {
         panelTienda.SetActive(false);
+        botonTienda.SetActive(true);
     }
 }

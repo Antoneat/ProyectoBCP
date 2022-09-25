@@ -7,7 +7,7 @@ public class MoneyController : MonoBehaviour
     public float Money;
     void Start()
     {
-        Money = 0;
+
     }
 
     // Update is called once per frame
