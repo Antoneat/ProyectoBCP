@@ -30,14 +30,14 @@ public class AnimationController : MonoBehaviour
 		{
             suciom.SetActive(false);
 		}
-        if(hungerC.hunger > 20)
+        if(hungerC.hunger > 7.5f)
 		{
             hambrem.SetActive(true);
 		}else
 		{
             hambrem.SetActive(false);
 		}
-        if((poopC.poops.Length >= poopC.cuyes.Length*2) || hungerC.hunger > 20)
+        if((poopC.poops.Length >= poopC.cuyes.Length*2) || hungerC.hunger > 7.5f)
 		{
             sad = true;
 		}else

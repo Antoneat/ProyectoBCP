@@ -52,7 +52,7 @@ public class Feeder : MonoBehaviour
     void SpawnAlfalfa()
     {
         spawnFood += Time.deltaTime;
-        if (spawnFood >= 20f)
+        if (spawnFood >= 10f)
         {
             Vector2 randomFeederPos =new Vector2 (feederPos.transform.position.x + Random.Range(-0.4f, 0.4f), feederPos.transform.position.y);
             Instantiate(food, randomFeederPos, feederPos.transform.rotation);

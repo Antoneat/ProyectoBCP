@@ -36,7 +36,7 @@ public class PoopController : MonoBehaviour
     void SpawnPoop()
     {
         spawnTime += Time.deltaTime;
-        if (spawnTime >= 15f)
+        if (spawnTime >= 10f)
         {
             foreach (GameObject cuy in cuyes)
             {

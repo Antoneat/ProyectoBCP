@@ -17,7 +17,7 @@ public class HungerController : MonoBehaviour
     {
         hunger += Time.deltaTime;
         {
-            if (hunger >= 25)
+            if (hunger >= 15)
             {
                 Destroy(gameObject);
             }

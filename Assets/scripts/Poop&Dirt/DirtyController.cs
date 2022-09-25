@@ -31,6 +31,9 @@ public class DirtyController : MonoBehaviour
                     dirtyRun = 0;
                 }
             }
-        }
+        }else
+		{
+            dirtyRun = 0;
+		}
     }
 }
