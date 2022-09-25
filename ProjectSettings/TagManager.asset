@@ -9,15 +9,19 @@ TagManager:
   - Corral
   - DirtPoopManager
   - Food
+  - Fox
+  - food
+  - LimitWalls
+  - foodmanager
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Walls
   - Water
   - UI
-  - 
-  - 
+  - Zorro
+  - Cuy
   - 
   - 
   - 
@@ -45,4 +49,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: comida
+    uniqueID: 613087379
     locked: 0

@@ -4,61 +4,73 @@ using UnityEngine;
 
 public class FoxMovment : MonoBehaviour
 {
-    private PoopController pC;
-    private GameObject corral;
 
+    Rigidbody2D rb;
+    Transform target;
+    Vector2 moveDirection;
     [SerializeField] private float speed;
-    GameObject currentPoint;
+    [SerializeField]  GameObject cuy;
 
-    private bool goingtocorral;
-    private float breakinCorral;
+    public float breakinCorral;
+    public bool mejorado;
 
-    int index;
     void Start()
     {
-
-        pC = GetComponent<PoopController>(); 
-        corral = GameObject.FindGameObjectWithTag("Corral");
-
-        index = Random.Range(0, pC.cuyes.Length);
-        currentPoint = pC.cuyes[index];
-        goingtocorral = true;
+        target = GameObject.FindGameObjectWithTag("Cuy").transform;
+        rb = GetComponent<Rigidbody2D>();
+       
+       // cuy = GameObject.FindGameObjectWithTag("Cuy");
+       mejorado = false;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        if (goingtocorral)
-        { 
-            MoveToCorral();
-        }
-    }
-
-    void MoveToCorral() // mueve el zorro hacia el corral
-    {
-        transform.position = Vector2.MoveTowards(transform.position, corral.transform.position, speed*Time.deltaTime);
-        transform.up = corral.transform.position - transform.position;
-    }
-
-    void CatchCuy() // mueve el zorro hacia un cuy del array de cuys, elige el cuy a lo random
-    {
-        transform.position = Vector2.MoveTowards(transform.position,currentPoint.transform.position, speed * Time.deltaTime);
-        transform.up = currentPoint.transform.position - transform.position;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Corral"))
+        if(mejorado==false)
         {
-            goingtocorral = false;
-            breakinCorral += Time.deltaTime;
-            
-            if (breakinCorral >= 6f)
-            {
-                CatchCuy();
-                breakinCorral =0;
-            }    
+
+            CatchCuy();
         }
+        else
+        {
+            CatchCuyDefensa();
+        }
+
+
+    }
+
+    void CatchCuy()
+    {
+        Debug.Log("foxeando");
+        breakinCorral += Time.deltaTime;
+        Vector2 direction = (target.position - transform.position).normalized;
+        float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+        rb.rotation = angle;
+        moveDirection = direction;
+
+        if (breakinCorral >= 6f)
+        {
+            rb.velocity = new Vector2(moveDirection.x, moveDirection.y)*speed;
+            breakinCorral = 0;
+        }
+
+    }
+
+    void CatchCuyDefensa()
+    {
+        Debug.Log("foxeando2");
+        breakinCorral += Time.deltaTime;
+        Vector2 direction = (target.position - transform.position).normalized;
+        float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+        rb.rotation = angle;
+        moveDirection = direction;
+
+        if (breakinCorral >= 12f)
+        {
+            rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * speed;
+            breakinCorral = 0;
+        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

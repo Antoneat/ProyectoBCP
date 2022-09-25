@@ -5,8 +5,7 @@ using UnityEngine;
 public class PoopController : MonoBehaviour
 {
     public GameObject poop;
-    //private GameObject cuy;
-
+  
     private float spawnTime;
 
     //public float spawnDelay;
@@ -50,7 +49,7 @@ public class PoopController : MonoBehaviour
     void WhenToSpawn()
     {
 
-        while (poops.Length <= cuyes.Length*2)
+        if (poops.Length <= cuyes.Length*2)
         {
             SpawnPoop();
             //InvokeRepeating("SpawnPoop", spawnTime, spawnDelay);

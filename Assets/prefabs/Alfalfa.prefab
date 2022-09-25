@@ -11,12 +11,11 @@ GameObject:
   - component: {fileID: 5460606602207433460}
   - component: {fileID: 7715345059550479282}
   - component: {fileID: -7938169174292575226}
-  - component: {fileID: 3950223589239627326}
   - component: {fileID: 2088432458412290569}
   - component: {fileID: -5641525655034215651}
   m_Layer: 0
   m_Name: Alfalfa
-  m_TagString: Food
+  m_TagString: food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,18 +113,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3950223589239627326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2915424472392001234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83c03842d6a3d9a4e95ed2985efc6f65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &2088432458412290569
 Rigidbody2D:
   serializedVersion: 4

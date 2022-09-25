@@ -4,50 +4,135 @@ using UnityEngine;
 
 public class CuyController : MonoBehaviour
 {
+    Rigidbody2D rb;
+    private Vector2 moveDirection;
+
+    private string behaviour;
+    private bool needsNewBehaviour = true;
+    private bool currentlyMoving = false;
+    private bool currentlyIdling = false;
+
+    // Used to make the pig play a variety of oinking sound effects.
+   // private AudioSource cuyAudioSource;
+   // public List<AudioClip> cuySounds;
+
+    // Floats used to process the pig's move behaviour.
     public float moveSpeed;
-    public Vector3 dir;
-    public float turnSpeed;
-    float targetAngle;
-    Vector3 currentPos;
-    bool play = true;
-    Vector3 direction;
-    void Start()
+    private float moveLength;
+    public float moveLengthMin;
+    public float moveLengthMax;
+    private float moveTime;
+    public float moveDist;
+   
+
+    // Floats used to process the pig's idle behaviour.
+    public float idleMin;
+    public float idleMax;
+    private float idleLength;
+    private float idleTime;
+
+    // Sprite Renderer
+    public SpriteRenderer cuySpriteRenderer;
+
+    // Animator
+   // public Animator cuyAnimator;
+
+    private void Start()
     {
-        dir = Vector3.up;
-        InvokeRepeating("Start1", 0f, 5f);
+  
+        rb = GetComponent<Rigidbody2D>();
+        // cuyAudioSource = gameObject.GetComponent<AudioSource>();
     }
-    void Start1()
-    {
-        play = true;
-        direction = new Vector3(Random.Range(-3.0f, 3.0f), Random.Range(-4.0f, 4.0f), 0); //random position in x and y
-    }
+
     void Update()
     {
-        currentPos = transform.position;//current position of gameObject
-        if (play)
-        { //calculating direction
-            dir = direction - currentPos;
-
-            dir.z = 0;
-            dir.Normalize();
-            play = false;
+        if (needsNewBehaviour)
+        {
+            behaviour = ChooseBehaviour();
+            needsNewBehaviour = false;
         }
-        Vector3 target = dir * moveSpeed + currentPos;  //calculating target position
-        transform.position = Vector3.Lerp(currentPos, target, Time.deltaTime);//movement from current position to target position
-        targetAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90; //angle of rotation of gameobject
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, targetAngle), turnSpeed * Time.deltaTime); //rotation from current direction to target direction
+        switch (behaviour)
+        {
+           /* case "cuySonidos":
+                if (!cuyAudioSource.isPlaying)
+                {
+                    int cuySound = Random.Range(0, cuySounds.Count);
+                    cuyAudioSource.PlayOneShot(cuySounds[cuySound]);
+                    Debug.Log("The cuy cuyed(?? at " + Time.time);
+                }
+                needsNewBehaviour = true;
+
+                break;*/
+
+            case "move":
+                if (!currentlyMoving)
+                {
+                    moveTime = 0;
+                    moveLength = Random.Range(moveLengthMin, moveLengthMax);
+                    rb.velocity = new Vector2(Random.Range(-moveDist, moveDist), Random.Range(-moveDist, moveDist)*moveSpeed);
+                    //moveDirection = new Vector2(Random.Range(-moveDist, moveDist), Random.Range(-moveDist, moveDist));
+                    Debug.Log("The cuy started moving at " + Time.time);
+                    currentlyMoving = true;
+                }
+                if (moveTime < moveLength)
+                {
+                    if (rb.velocity.x < 0)
+                    { cuySpriteRenderer.flipX = true; }
+                    else if (rb.velocity.x > 0)
+                    { cuySpriteRenderer.flipX = false; }
+                    
+                   
+                    // rb.MovePosition(rb.position * moveDirection * Time.deltaTime * moveSpeed);
+                    //transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
+
+                    moveTime += Time.deltaTime;
+                    // cuyAnimator.SetFloat("Speed_f", 1);
+                }
+                else
+                {
+                    Debug.Log("The cuy finished moving at " + Time.time);
+                    currentlyMoving = false;
+                    needsNewBehaviour = true;
+                  //  cuyAnimator.SetFloat("Speed_f", 0);
+                }
+                break;
+
+            case "idle":
+
+                if (!currentlyIdling)
+                {
+                    idleTime = 0;
+                    idleLength = Random.Range(idleMin, idleMax);
+                    Debug.Log($"The cuy is going to start idling at {Time.time} for {idleLength} seconds.");
+                    currentlyIdling = true;
+                }
+
+                if (idleTime < idleLength)
+                {
+                    idleTime += Time.deltaTime;
+                }
+                else
+                {
+                    Debug.Log("The cuy finished idling at" + Time.time);
+                    currentlyIdling = false;
+                    needsNewBehaviour = true;
+                }
+                break;
+        }
     }
-    void OnCollisionEnter2D()
+    // Randomly returns one of several strings describing a possible piggy behaviour.
+    string ChooseBehaviour()
     {
-
-        CancelInvoke();//stop call to start1 method
-        direction = new Vector3(Random.Range(-3.0f, 3.0f), Random.Range(-4.0f, 4.0f), 0); //again provide random position in x and y
-        play = true;
-
+        int behaviour = Random.Range(0, 2);
+        switch (behaviour)
+        {
+            case 0:
+                return "move";
+         /*   case 1:
+                return "cuySonidos";*/
+            default:
+                return "idle";
+        }
     }
 
-    void OnCollisionExit2D()
-    {
-        InvokeRepeating("Start1", 2f, 5f);
-    }
 }

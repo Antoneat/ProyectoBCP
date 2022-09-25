@@ -18,7 +18,7 @@ public class FoxSpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foxes = GameObject.FindGameObjectsWithTag(("fox"));
+        foxes = GameObject.FindGameObjectsWithTag(("Fox"));
 
         if (pC.cuyes.Length >= 2)
         {
@@ -30,7 +30,6 @@ public class FoxSpawn : MonoBehaviour
             }
 
         }
-    
     }
 
     void Spawn()
