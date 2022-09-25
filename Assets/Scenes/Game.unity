@@ -1385,9 +1385,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   food: {fileID: 2915424472392001234, guid: 9df6bb70b36d8d641b9d179b7405e859, type: 3}
-  food1: {fileID: 0}
-  food2: {fileID: 0}
-  food3: {fileID: 0}
+  food1: {fileID: 1523395516592056349, guid: 99fdf1a6b763c7a48a052e9bef7cf9c2, type: 3}
+  food2: {fileID: 358778495124018162, guid: b9e547a9209744644a9cc5d43e084095, type: 3}
+  food3: {fileID: 8622553786685093298, guid: b0d8f0856f2dd5949a77a752b1e242c6, type: 3}
   feederPos: {fileID: 956477872}
   foodCounter: {fileID: 2116816559}
   normal: 0
@@ -4359,7 +4359,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -131.99995, y: 213}
+  m_AnchoredPosition: {x: -131.99994, y: 213}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1663500992
@@ -5075,7 +5075,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -131.99995, y: 262}
+  m_AnchoredPosition: {x: -131.99994, y: 262}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1924651692
