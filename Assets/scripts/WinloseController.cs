@@ -20,7 +20,7 @@ public class WinloseController : MonoBehaviour
 
     void Lost()
     {
-        if (mc.Money <= 0 && pc.cuyes.Length==0)
+        if (mc.Money <= 20 && pc.cuyes.Length==0)
         {
             SceneManager.LoadScene("Lose");
         }
