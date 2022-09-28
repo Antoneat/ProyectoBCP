@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8696926944231788253}
   - component: {fileID: 6821977175515404276}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: balde3 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: -7938169174292575226}
   - component: {fileID: 2088432458412290569}
   - component: {fileID: 6414830446799736742}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Alfalfa
   m_TagString: food
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 2982617122122178020}
   - component: {fileID: 2771330462130434932}
   - component: {fileID: 5511612638300009000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}

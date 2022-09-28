@@ -13,6 +13,9 @@ public class AnimationController : MonoBehaviour
 
     [SerializeField] private GameObject suciom;
     [SerializeField] private GameObject hambrem;
+
+
+    public GameObject poop;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,5 +49,13 @@ public class AnimationController : MonoBehaviour
 		}
         anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x) + Mathf.Abs(rb.velocity.y));
         anim.SetBool("Sad", sad);
+    }
+    public IEnumerator Poop()
+	{
+        anim.SetBool("Poop", true);
+        yield return new WaitForSeconds(1f);
+        anim.SetBool("Poop", false);
+        Instantiate(poop, transform.position, transform.rotation);
+
     }
 }

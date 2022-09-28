@@ -6,6 +6,7 @@ public class FoxKiller : MonoBehaviour
 {
     TouchPhase touchPhase = TouchPhase.Ended;
     Vector3 touchPosWorld;
+    int timesTouched;
 
     void Start()
     {
@@ -16,6 +17,10 @@ public class FoxKiller : MonoBehaviour
     void Update()
     {
         KillFox();
+        if(timesTouched >= 15)
+		{
+            Destroy(gameObject);
+		}
     }
 
     void KillFox()
@@ -38,9 +43,9 @@ public class FoxKiller : MonoBehaviour
                 //touchedObject should be the object someone touched.
                 Debug.Log("Touched " + touchedObject.transform.name);
 
-                if (Input.touchCount >= 5)
+                if (touchedObject.gameObject.CompareTag("Fox"))
                 {
-                    Destroy(gameObject);
+                    timesTouched++;
                 }
             }
         }

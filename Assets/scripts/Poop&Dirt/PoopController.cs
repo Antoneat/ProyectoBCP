@@ -36,11 +36,11 @@ public class PoopController : MonoBehaviour
     void SpawnPoop()
     {
         spawnTime += Time.deltaTime;
-        if (spawnTime >= 10f)
+        if (spawnTime >= 5f)
         {
             foreach (GameObject cuy in cuyes)
             {
-                Instantiate(poop, cuy.transform.position, cuy.transform.rotation);
+                StartCoroutine(cuy.GetComponent<AnimationController>().Poop());
             }
             spawnTime = 0;
         }     

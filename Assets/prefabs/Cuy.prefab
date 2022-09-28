@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 367
   m_Sprite: {fileID: 21300000, guid: d115f43dc1ec1e8438818bed6c5f3628, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -156,7 +156,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 367
   m_Sprite: {fileID: 21300000, guid: d9c79fcd99e55a34c8e3558145d8eb18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -313,6 +313,7 @@ MonoBehaviour:
   sad: 0
   suciom: {fileID: 2514880936819140924}
   hambrem: {fileID: 3060973280737756643}
+  poop: {fileID: 1988706826591352919, guid: b4ad53b6073e2c144ac02657d7b25a5a, type: 3}
 --- !u!95 &8490920024358883035
 Animator:
   serializedVersion: 4

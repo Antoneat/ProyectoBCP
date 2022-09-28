@@ -13,6 +13,7 @@ TagManager:
   - food
   - LimitWalls
   - foodmanager
+  - Nest
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - UI
   - Zorro
   - Cuy
-  - 
+  - Food
   - 
   - 
   - 

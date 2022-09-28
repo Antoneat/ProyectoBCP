@@ -9,10 +9,12 @@ public class FoxSpawn : MonoBehaviour
     public GameObject spawnPoint;
 
     public GameObject[] foxes;
-    private float foxSpawnTime;
+    [SerializeField] private float foxSpawnTime;
+    [SerializeField] private float randomTime;
     void Start()
     {
         foxes = new GameObject[foxes.Length];
+        RandomizeTimer();
     }
 
     // Update is called once per frame
@@ -23,17 +25,27 @@ public class FoxSpawn : MonoBehaviour
         if (pC.cuyes.Length >= 2)
         {
             foxSpawnTime += Time.deltaTime;
-            if (foxSpawnTime == Random.Range(10f, 20f))
+            if (foxSpawnTime >= (randomTime - 0.5f) && foxSpawnTime <= (randomTime + 0.5f))
             {
                 foxSpawnTime = 0;
                 Spawn();
             }
 
         }
+        else
+		{
+            foxSpawnTime = 0;
+		}
     }
+
+    void RandomizeTimer()
+	{
+        randomTime = Random.Range(10f, 20f);
+	}
 
     void Spawn()
     {
         Instantiate(fox, spawnPoint.transform.position, spawnPoint.transform.rotation);
+        RandomizeTimer();
     }
 }

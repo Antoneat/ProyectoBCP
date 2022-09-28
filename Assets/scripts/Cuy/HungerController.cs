@@ -31,7 +31,7 @@ public class HungerController : MonoBehaviour
 
           if (hunger >= 1)
             {
-                hunger -= 12.5f;
+                hunger = 0;
                 Destroy(collision.gameObject);
                 foodCounter.foodValue -= 1;
             }

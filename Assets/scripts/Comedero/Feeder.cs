@@ -54,7 +54,7 @@ public class Feeder : MonoBehaviour
         spawnFood += Time.deltaTime;
         if (spawnFood >= 10f)
         {
-            Vector2 randomFeederPos =new Vector2 (feederPos.transform.position.x + Random.Range(-0.4f, 0.4f), feederPos.transform.position.y);
+            Vector2 randomFeederPos =new Vector2 (feederPos.transform.position.x + Random.Range(-3.37f, 3f), feederPos.transform.position.y);
             Instantiate(food, randomFeederPos, feederPos.transform.rotation);
            
             spawnFood = 0;
@@ -65,39 +65,39 @@ public class Feeder : MonoBehaviour
     void SpawnAlfalfaMejora1()
     {
         spawnFood += Time.deltaTime;
-        if (spawnFood >= 20f)
+        if (spawnFood >= 7f)
         {
-            Vector2 randomFeederPos = new Vector2(feederPos.transform.position.x + Random.Range(-0.4f, 0.4f), feederPos.transform.position.y);
-            Instantiate(food1, randomFeederPos, feederPos.transform.rotation);
+            Vector2 randomFeederPos = new Vector2(feederPos.transform.position.x + Random.Range(-3.37f, 3f), feederPos.transform.position.y);
+            Instantiate(food, randomFeederPos, feederPos.transform.rotation);
 
             spawnFood = 0;
-            foodCounter.foodValue += 3;
+            foodCounter.foodValue += 1;
         }
     }
 
     void SpawnAlfalfaMejora2()
     {
         spawnFood += Time.deltaTime;
-        if (spawnFood >= 20f)
+        if (spawnFood >= 5f)
         {
-            Vector2 randomFeederPos = new Vector2(feederPos.transform.position.x + Random.Range(-0.4f, 0.4f), feederPos.transform.position.y);
+            Vector2 randomFeederPos = new Vector2(feederPos.transform.position.x + Random.Range(-3.37f, 3f), feederPos.transform.position.y);
             Instantiate(food2, randomFeederPos, feederPos.transform.rotation);
 
             spawnFood = 0;
-            foodCounter.foodValue += 6;
+            foodCounter.foodValue += 1;
         }
     }
 
     void SpawnAlfalfaMejora3()
     {
         spawnFood += Time.deltaTime;
-        if (spawnFood >= 20f)
+        if (spawnFood >= 3f)
         {
-            Vector2 randomFeederPos = new Vector2(feederPos.transform.position.x + Random.Range(-0.4f, 0.4f), feederPos.transform.position.y);
+            Vector2 randomFeederPos = new Vector2(feederPos.transform.position.x + Random.Range(-3.37f, 3f), feederPos.transform.position.y);
             Instantiate(food3, randomFeederPos, feederPos.transform.rotation);
 
             spawnFood = 0;
-            foodCounter.foodValue += 10;
+            foodCounter.foodValue += 1;
         }
     }
 }
